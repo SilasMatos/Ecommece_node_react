@@ -61,13 +61,13 @@ function Navbar2({setSearchProducts}) {
 </div>
 
           <Nav className="align-icons">
-                <Link className="icon">  <BsChatDots className="icon-size"/> </Link>
+                <Link to="/chat" className="icon">  <BsChatDots className="icon-size"/> </Link>
                 <Link className="icon"><AiOutlineUser className="icon-size" /></Link>
                 <Link   className="icon"><AiOutlineShoppingCart className="icon-size" /></Link>
                 {userData.isLogged ? (
                 <Link  to="/dashboard"><Button className="btn_nav" >Anunciar</Button></Link>
                 ) : null}
-                 {userData.isLogged ? null : (
+                 {userData.isLogged ? null : (  
                 <Link to="/login"><Button className="btn_nav" >Entrar</Button></Link>
                 )}
                 {userData.isLogged ? (

@@ -8,6 +8,7 @@ import {
 import Home from "../components/pages/Home/Home";
 import Dashboard from "../components/pages/Dashboard/Dashboard";
 import LoginPage from "../components/Login/Login";
+import ChatPage from "../components/Tela/TelaIndex"
 import RegisterPage from "../components/Login/Register";
 import BookDetails from "../components/pages/BooksDetails/BooksDetails";
 import { useContext } from "react";
@@ -31,6 +32,7 @@ const Rotas = () => {
             element={userData.isLogged ? <Dashboard /> : <Navigate to="/" />}
           />
           <Route exact path="/login" Component={LoginPage} />
+          <Route exact path="/chat" Component={ChatPage} />
           <Route exact path="/registrar" Component={RegisterPage} />
           <Route
             path="/map_products"
