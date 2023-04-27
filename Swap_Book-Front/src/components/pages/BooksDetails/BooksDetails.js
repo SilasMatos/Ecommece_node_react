@@ -3,6 +3,7 @@ import api from '../../../Services/Api';
 import { useNavigate, useParams } from 'react-router-dom';
 import Navbar2 from '../../Navbar2/Navbar2';
 import Cards from '../../Cards/Cards';
+import Footer from '../../Footer/Footer';
 
 const BookDetails = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -110,7 +111,7 @@ const BookDetails = () => {
           </div>
           
   )}
-
+  <Footer/>
     </>
   );
 };

@@ -6,6 +6,7 @@ import api from "../../../Services/Api";
 import { UserContext } from "../../UseContext/UserContext";
 import { useNavigate } from "react-router-dom";
 import FormData from 'form-data'
+import Footer from "../../Footer/Footer";
 
 
 
@@ -32,7 +33,7 @@ const Dashboard = () => {
       formData.append('synopsis', sisnopseProduct);
       formData.append('year', productYear);
       formData.append('src', src[0]);
-      const response = await api.post(`${userData._id}/productPj`, formData, { headers: { auth: `${userData._id}` }});
+      const response = await api.post(`${userData._id}/product`, formData, { headers: { auth: `${userData._id}` }});
       alert("produto cadastrado com sucesso!")
       navigate('/meus_anuncios')
     }catch(err){
@@ -101,7 +102,7 @@ const Dashboard = () => {
     </div>
   </form>
 </section>
-
+<Footer/>
     </>
   );
 };

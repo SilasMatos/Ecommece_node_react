@@ -3,7 +3,9 @@ import React from 'react';
 import { Link, useNavigate} from 'react-router-dom';
 import api from '../../Services/Api.js';
 import { UserContext } from "../UseContext/UserContext";
-
+import '../Login/StyleLogin.css'
+import { Col, Container, Row } from 'react-bootstrap';
+import imgBook from '../img/undraw_Books_re_8gea.png'
 
 
 const LoginPage = () => {
@@ -49,12 +51,16 @@ const LoginPage = () => {
   
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      <div className="bg-white p-10 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold mb-4 text-center">Login</h1>
-        <form className="space-y-6">
+   
+
+    <div class="flex flex-row items-center justify-center h-screen bg-gray-100">
+    
+    <div class="w-edt">
+      <div class="bg-white  shadow-lg">
+        <h1 class="text-3xl font-bold  text-center">Login</h1>
+        <form class="space-y-6">
           <div>
-            <label htmlFor="email" className="block text-gray-800 font-bold mb-2">
+            <label for="email" class="block text-gray-800 font-bold mb-2">
               Email
             </label>
             <input
@@ -63,13 +69,12 @@ const LoginPage = () => {
               value={email}
               id="email"
               name="email"
-              className="w-full border border-gray-300 p-2 rounded-lg"
+              class="w-full border border-gray-300 p-2 rounded-lg"
               placeholder="Enter your email address"
             />
-            
           </div>
           <div>
-            <label htmlFor="password" className="block text-gray-800 font-bold mb-2">
+            <label for="password" class="block text-gray-800 font-bold mb-2">
               Password
             </label>
             <input
@@ -78,7 +83,7 @@ const LoginPage = () => {
               type="password"
               id="password"
               name="password"
-              className="w-full border border-gray-300 p-2 rounded-lg"
+              class="w-full border border-gray-300 p-2 rounded-lg"
               placeholder="Enter your password"
             />
           </div>
@@ -86,20 +91,23 @@ const LoginPage = () => {
             <button
               onClick={loginHandle}
               type="submit"
-              className="w-full rounded-3xl bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 text-xl font-medium uppercase"
+              class="w-full rounded-3xl bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 text-xl font-medium uppercase"
             >
               Login
             </button>
           </div>
         </form>
+        <p class="mt-4 text-gray-600">
+          Não Possui uma conta? {' '}
+          <button class="text-blue-500 hover:text-blue-600">
+            <Link to="/registrar"> Registre-se Aqui</Link>
+          </button>
+        </p>
+        
       </div>
-      <p className="mt-4 text-gray-600">
-        Não Possui uma conta? {' '}
-        <button className="text-blue-500 hover:text-blue-600">
-          <Link to="/registrar"> Registre-se Aqui</Link>
-        </button>
-      </p>
-    </div>
+    </div>      
+    
+  </div>
   );
 };
 

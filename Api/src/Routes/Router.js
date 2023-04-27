@@ -29,6 +29,7 @@ routes.get('/user/:user_id', UserController.findUser)
 
 //Product 
 routes.post('/:user_id/product', upload.single('src'), ProductController.create)
+routes.put('/users/:user_id/products/:product_id',upload.single('src'), ProductController.update);
 routes.delete('/:user_id/product/:product_id', ProductController.delete)
 routes.get('/product/cords', ProductController.indexCords)
 routes.get('/product', ProductController.indexAll)

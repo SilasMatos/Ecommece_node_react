@@ -103,7 +103,7 @@ const Home = () => {
     <div>
       <Navbar2 setSearchProducts={setSearchProducts} />
       
-      <div className="d-flex">
+      <div className="">
         {searchProducts ? (
           filteredData ? (
             <div className={`${styles.cards} d-flex`}>

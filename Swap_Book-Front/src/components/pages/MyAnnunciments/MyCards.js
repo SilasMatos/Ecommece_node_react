@@ -3,7 +3,18 @@ import styles from './myCards.module.css'
 import api from '../../../Services/Api';
 import { useEffect ,useContext } from 'react'
 import { UserContext } from "../../UseContext/UserContext";
+import { Link } from 'react-router-dom';
+import { Dropdown, IconButton } from 'rsuite';
+import 'rsuite/dist/rsuite.min.css';
+import MoreIcon from '@rsuite/icons/More';
+import TrashIcon from '@rsuite/icons/Trash';
+import EditIcon from '@rsuite/icons/Edit';
 
+const renderIconButton = (props, ref) => {
+  return (
+    <IconButton {...props} ref={ref} icon={<MoreIcon />} circle color="blue" appearance="primary" className='z-3 position-absolute ' />
+  );
+};
 
 const MyCards = ({name, price, synopsis, _id, src}) => {
   const [userData, setUserData] = useContext(UserContext);
@@ -24,8 +35,22 @@ const MyCards = ({name, price, synopsis, _id, src}) => {
 
   return (
     <div className={` cards container d-flex`}>
-
-      <div className="card">
+      
+      <div>
+        
+      <div className={`${styles.cardinho} `}>
+      <div>
+        <Dropdown className={`${styles.drops} z-3`} title="" renderToggle={renderIconButton}>
+          
+                <Dropdown.Item icon={<TrashIcon />}onClick={deleteProduct}>
+                </Dropdown.Item>
+                <Link to={`/editar_produto/${_id}`}>
+                  <Dropdown.Item icon={<EditIcon/>} >
+                  </Dropdown.Item>
+                </Link>
+                
+            </Dropdown>
+        </div>
         <img
           src={`http://localhost:3333/${src}`}
           alt="Denim Jeans"
@@ -33,12 +58,11 @@ const MyCards = ({name, price, synopsis, _id, src}) => {
         <h1>{name}</h1>
         <p className="price">R$ {price}</p>
         <p>{synopsis}</p>
-        <p>
-         <button>Add to cart</button>
-         <button onClick={deleteProduct}>Deletar Anuncio</button>
-        </p>
         
       </div>
+        
+      </div>
+      
     </div>
 
   )

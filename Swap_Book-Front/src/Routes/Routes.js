@@ -15,6 +15,7 @@ import { useContext } from "react";
 import { UserContext } from "../components/UseContext/UserContext";
 import MyAnnuncements from "../components/pages/MyAnnunciments/MyAnnuncements";
 import MapGL from "../components/MapGL/MapGL";
+import UpdateBook from "../components/pages/UpdateBook/UpdateBook";
 
 const Rotas = () => {
     const [userData, setUserData] = useContext(UserContext)
@@ -37,6 +38,10 @@ const Rotas = () => {
           <Route
             path="/map_products"
             element={userData.isLogged ? <MapGL/> : <Navigate to="/" />}
+          />
+          <Route
+            path="/editar_produto/:_id"
+            element={userData.isLogged ? <UpdateBook/> : <Navigate to="/" />}
           />
         </Routes>
       </Router>
