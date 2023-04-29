@@ -1,83 +1,86 @@
 import React from 'react';
+import '../Footer/Footer.css'
+import logoFooter from '../img/logo_footer.png'
+
+//<div class="col-md-1 col-lg-1 col-xl-1 mx-auto mb-md-0 mb-4">
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-gray-300">
-      <div className="container mx-auto py-8 flex flex-wrap">
-        <div className="w-full md:w-1/3 lg:w-1/4 px-4 mb-8">
-          <h3 className="text-lg font-bold mb-4">About Us</h3>
-          <p className="mb-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac sem et nibh semper blandit. In hac habitasse platea dictumst.
+ 
+<footer class="position-relative text-center footer-edit text-lg-start text-muted">
+
+ 
+  <section class="text-edit-footer">
+    <div class="container text-center text-md-start mt-5">
+     
+      <div class="row mt-3">
+       
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+        
+          <h6 class="text-uppercase  fw-bold mb-4">
+            <img alt='logo' className='img_logo_footer' src={logoFooter}></img>
+
+          </h6>
+          <p>
+          Renove sua estante e compartilhe conhecimento com Swap Book: a plataforma de troca de livros feita para leitores apaixonados!
+          </p>
+        </div>
+    
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4">
+     
+          <h6 class="text-uppercase edit-h6 fw-bold mb-4">
+            Categorias mais populares
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Ação</a>
           </p>
           <p>
-            <a href="#" className="text-gray-300 hover:text-white">Read More</a>
+            <a href="#!" class="text-reset">Romance</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Drama</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Educação</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Infantil</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">História</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Biografia</a>
           </p>
         </div>
-        <div className="w-full md:w-1/3 lg:w-1/4 px-4 mb-8">
-          <h3 className="text-lg font-bold mb-4">Quick Links</h3>
-          <ul className="list-none">
-            <li className="mb-2">
-              <a href="#" className="text-gray-300 hover:text-white">Home</a>
-            </li>
-            <li className="mb-2">
-              <a href="#" className="text-gray-300 hover:text-white">Shop</a>
-            </li>
-            <li className="mb-2">
-              <a href="#" className="text-gray-300 hover:text-white">About Us</a>
-            </li>
-            <li className="mb-2">
-              <a href="#" className="text-gray-300 hover:text-white">Contact Us</a>
-            </li>
-          </ul>
-        </div>
-        <div className="w-full md:w-1/3 lg:w-1/4 px-4 mb-8">
-          <h3 className="text-lg font-bold mb-4">Subscribe</h3>
-          <p className="mb-4">
-            Get the latest news and updates from our store.
+     
+        <div class="col-md-5 col-lg-4 col-xl-4 mx-auto mb-4">
+      
+          <h6 class="text-uppercase edit-h6  fw-bold mb-4">
+           Atendimento ao Cliente
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Sobre nós</a>
           </p>
-          <form>
-            <div className="mb-4">
-              <input type="text" placeholder="Enter your email" className="w-full p-2 rounded-lg text-gray-800" />
-            </div>
-            <div>
-              <button type="submit" className="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg text-white">
-                Subscribe
-              </button>
-            </div>
-          </form>
-        </div>
-        <div className="w-full md:w-1/3 lg:w-1/4 px-4 mb-8">
-          <h3 className="text-lg font-bold mb-4">Follow Us</h3>
-          <ul className="list-none">
-            <li className="mb-2">
-              <a href="#" className="text-gray-300 hover:text-white">
-                <i className="fab fa-facebook-square mr-2"></i> Facebook
-              </a>
-            </li>
-            <li className="mb-2">
-              <a href="#" className="text-gray-300 hover:text-white">
-                <i className="fab fa-twitter-square mr-2"></i> Twitter
-              </a>
-            </li>
-            <li className="mb-2">
-              <a href="#" className="text-gray-300 hover:text-white">
-                <i className="fab fa-instagram-square mr-2"></i> Instagram
-              </a>
-            </li>
-            <li className="mb-2">
-              <a href="#" className="text-gray-300 hover:text-white">
-                <i className="fab fa-linkedin mr-2"></i> LinkedIn
-              </a>
-            </li>
-          </ul>
+          <p>
+            <a href="#!" class="text-reset">Termos e Condições</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Suporte</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Política de Privacidade</a>
+          </p>
         </div>
       </div>
-      <div className="bg-gray-700 py-4">
-        <div className="container mx-auto text-center">
-          <p className="text-sm text-gray-300">© 2022 Book Ecommerce. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
+    
+    </div>
+  </section>
+  <div id='dire-cl' class="text-center p-4" >
+    <a  class="text-reset " href="#">© 2023 Swap Book. Todos os direitos reservados. </a>
+  </div>
+</footer>
+
   );
 };
 

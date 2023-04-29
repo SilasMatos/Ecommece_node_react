@@ -11,7 +11,8 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../UseContext/UserContext.js";
 import CarouselCards from "../../CarouselCards/CarouselCards.js";
-import styles from './Home.module.css'
+import { GoLocation  } from 'react-icons/go'
+import  '../Home/Home.css'
 
 const Home = () => {
   const [latitude, setLatitude] = useState(0);
@@ -106,7 +107,7 @@ const Home = () => {
       <div className="">
         {searchProducts ? (
           filteredData ? (
-            <div className={`${styles.cards} d-flex`}>
+            <div className="cards d-flex">
               { filteredData.map((product) => (
               <Cards
                 key={product._id}
@@ -123,9 +124,9 @@ const Home = () => {
           <div>
             <CarouselFadeExample />
             <Categorias setCategory={setCategory} />
-            <div className="text-center">
+            <div className="text-center container">
               <h2>{category}</h2>
-              <div className={`${styles.cards} d-flex`}>
+              <div className="cards d-flex">
                 {CategoredProducts.map((product) => (
                   <Cards
                     key={product._id}
@@ -139,15 +140,10 @@ const Home = () => {
               </div>
             </div>
             <Trotes />
-            <div className="text-center">
-              <h2>VEJA OS LIVROS PRÓXIMOS DE VOCÊ</h2>
-              {userData.isLogged ? (
-                <Link to="/map_products">
-                  <p>Veja no Mapa</p>
-                </Link>
-              ) : null}
-
-              <div className={`${styles.cards} d-flex`}>
+            <div className="container">
+              <h2 id="edit-h2">Veja os Livros Próximos a <span>Você</span></h2>
+             
+              <div className="cards d-flex">
                 {productsData.map((product) => (
                   <Cards
                     key={product._id}
@@ -158,6 +154,13 @@ const Home = () => {
                     synopsis={product.synopsis}
                   />
                 ))}
+              </div>
+              <div className="text-center link_map">
+              {userData.isLogged ? (
+                <Link id="link-tx" to="/map_products">
+                  <button className="btn_map link_map">Veja no Mapa <GoLocation id="icon-map"/></button>
+                </Link>
+              ) : null}
               </div>
             </div>
             {/* <div className="text-center">
@@ -172,6 +175,12 @@ const Home = () => {
                   />
                 ))}
               </div>
+               {userData.isLogged ? (
+                <Link to="/map_products">
+                  <p>Veja no Mapa <GoLocation/></p>
+                </Link>
+              ) : null}
+
             </div> */}
           </div>
         )}

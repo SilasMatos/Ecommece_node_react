@@ -1,14 +1,13 @@
 import Carousel from 'react-bootstrap/Carousel'
-import banner01 from '../img/banner_01.png'
+import banner01 from '../img/banner.jpg'
+import '../Carousel/Carousel.css'
 function CarouselFadeExample() {
   return (
+    <div className='container edit-car'>
     <Carousel fade>
       <Carousel.Item>
         <img className="d-block img-fluid" src={banner01} alt="First slide" />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
+        
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -17,10 +16,7 @@ function CarouselFadeExample() {
           alt="Second slide"
         />
 
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
+       
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -29,15 +25,18 @@ function CarouselFadeExample() {
           alt="Third slide"
         />
 
+     
+      </Carousel.Item>
+    </Carousel>
+    </div>
+  )
+}
+
+export default CarouselFadeExample
+/*
         <Carousel.Caption>
           <h3>Third slide label</h3>
           <p>
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
           </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
-  )
-}
-
-export default CarouselFadeExample
+        </Carousel.Caption>*/
