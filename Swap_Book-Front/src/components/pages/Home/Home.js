@@ -143,7 +143,7 @@ const Home = () => {
             <div className="container">
               <h2 id="edit-h2">Veja os Livros Próximos a <span>Você</span></h2>
              
-              <div className="cards d-flex">
+              <div className="cards text-center d-flex">
                 {productsData.map((product) => (
                   <Cards
                     key={product._id}
