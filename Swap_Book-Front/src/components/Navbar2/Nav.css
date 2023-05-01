@@ -38,6 +38,10 @@
     font-size: 10pt;
     opacity: 0.8;
   }
+  .input-pesquisa:hover{
+    border: solid 1px #00a8ff;
+  }
+  
   #edit-tx-dr:hover{
     text-decoration: none;
   }

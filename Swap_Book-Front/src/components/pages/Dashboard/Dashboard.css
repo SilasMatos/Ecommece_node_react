@@ -1,3 +1,19 @@
+.form-edit-gp{
+  display: flex;
+  align-items: center;
+  
+
+  gap: 30px;
+
+}
+.col-img-input{
+  display: flex;
+
+}
+.full-df{
+
+  justify-content: center;
+}
 .products-inputs{
     display: flex;
     flex-direction: column;
@@ -53,6 +69,8 @@
     border-radius: 15px;
     font-weight: 500;
     color: #fff;
+    display: flex;
+    justify-content: center;
     
     background-image: linear-gradient(to top,  #00aaffb7 0%,  #00a8ff 100%);
   }
@@ -60,6 +78,9 @@
     position: relative;
     overflow: hidden;
     display: inline-block;
+  }
+  #img-preview{
+    max-width: 200px;
   }
   
   .input-wrapper input[type="file"] {
@@ -89,7 +110,7 @@
   .preview-wrapper {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 16px;
+    
   }
   
   .preview-wrapper img {
