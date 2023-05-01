@@ -14,7 +14,8 @@ import CarouselCards from "../../CarouselCards/CarouselCards.js";
 import { GoLocation  } from 'react-icons/go'
 import  '../Home/Home.css'
 import Carousel from 'react-bootstrap/Carousel';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Modal } from 'react-bootstrap';
+
 
 
 const Home = () => {
@@ -148,6 +149,7 @@ const Home = () => {
                 ))}
               </div>
             </div>
+           
             <Trotes />
             <div className="container">
               <h2 id="edit-h2">Veja os Livros Próximos a <span>Você</span></h2>

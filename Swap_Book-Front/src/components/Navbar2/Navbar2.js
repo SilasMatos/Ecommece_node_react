@@ -86,10 +86,10 @@ function Navbar2({setSearchProducts}) {
       <Dropdown.Toggle split  id="dropdown-split-basic" />
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Suas Trocas</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Sua Conta</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">{userData.isLogged ? (
-  <Link onClick={logoutHandler} >Sair</Link>
+        <Dropdown.Item id="edit-tx-dr" href="#/action-1">Suas Trocas</Dropdown.Item>
+        <Dropdown.Item id="edit-tx-dr" href="#/action-2">Sua Conta</Dropdown.Item>
+        <Dropdown.Item id="edit-tx-dr" href="#/action-3">{userData.isLogged ? (
+  <Link id="link-edit-tx" onClick={logoutHandler} >Sair</Link>
   ) : null}</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown></Link>
