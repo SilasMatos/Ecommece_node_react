@@ -1,5 +1,6 @@
 .cards{
   flex-wrap: wrap;
+  border-radius: 32px;
 }
 #edit-h2{
   font-size: 15pt;

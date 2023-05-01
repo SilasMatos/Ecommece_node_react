@@ -13,8 +13,13 @@ import { UserContext } from "../../UseContext/UserContext.js";
 import CarouselCards from "../../CarouselCards/CarouselCards.js";
 import { GoLocation  } from 'react-icons/go'
 import  '../Home/Home.css'
+import Carousel from 'react-bootstrap/Carousel';
+import { Container, Row, Col } from 'react-bootstrap';
+
 
 const Home = () => {
+  const [index, setIndex] = useState(0);
+
   const [latitude, setLatitude] = useState(0);
   const [longitude, setLongitude] = useState(0);
   const [productsData, setProductsData] = useState([]);
@@ -29,7 +34,9 @@ const Home = () => {
   useEffect(() => {
     getUserLocation();
   }, []);
-
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
   async function getUserLocation() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -114,6 +121,7 @@ const Home = () => {
                 name={product.name}
                 _id={product._id}
                 price={product.price}
+                author={product.author}
                 synopsis={product.synopsis}
                 src={product.src}
               />
@@ -124,9 +132,10 @@ const Home = () => {
           <div>
             <CarouselFadeExample />
             <Categorias setCategory={setCategory} />
-            <div className="text-center container">
+            <div className=" container">
+            <h2 id="edit-h2">Livro <span>Usados</span></h2>
               <h2>{category}</h2>
-              <div className="cards d-flex">
+              <div className="cards text-center d-flex">
                 {CategoredProducts.map((product) => (
                   <Cards
                     key={product._id}

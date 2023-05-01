@@ -2,49 +2,57 @@ import '../Cards/cardsStyle.css'
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import { AiOutlineHeart, AiFillHeart  } from 'react-icons/ai'
-import {AiOutlineInfoCircle} from'react-icons/ai'
+import {AiOutlineInfoCircle, AiOutlineShopping} from'react-icons/ai'
+import {MdFavoriteBorder} from'react-icons/md'
 
-function Cards({name, price, synopsis, src, _id}) {
-  const [isFavorite, setIsFavorite] = useState(false);
 
-  const handleFavoriteClick = () => {
-    setIsFavorite(!isFavorite);
-  };
+import './cardsStyle.css';
 
+function Cards({ src, name, author, price, _id, isFavorite, handleFavoriteClick }) {
+  const [hovered, setHovered] = useState(false);
+
+  function handleMouseEnter() {
+    setHovered(true);
+  }
+
+  function handleMouseLeave() {
+    setHovered(false);
+  }
 
   return (
-    
-
-    
-    
-    
-    
-      <div className="card">
-        <img
-         src={`http://localhost:3333/${src}`}
-         id='img-card text-center'
-          alt="Denim Jeans"
-        ></img>
-        
-        <h1 id='edit-name'>{name}</h1>
-        <div className='col-master'>
-        <div className='col-price'>
-        <p className="price">R${price},00</p>
-        </div>
-        <div className="btn-group">
-        <p className='details-edit'><Link id='details-edit' to={`/details/${_id}`}><AiOutlineInfoCircle/></Link></p>
-        <p>
-        <button className='btn-favorite' onClick={handleFavoriteClick}>
-        {isFavorite ? '❤️' : '🤍'}
-      </button>
-        </p>
-        </div>
+    <div className="card" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <img
+        src={`http://localhost:3333/${src}`}
+        id="img-card"
+        alt="Denim Jeans"
+      />
+      <div className='col-text-et container'>
+      <span class="card__category">R${price},00</span>
+      <h6 class="card__title">{name}</h6>
+      <span class="card__by">by <a href="#" class="card__author" title="author">Author</a></span>
+    </div>
+      <div className="col-master">
+        <div className={`btn-group ${hovered ? 'show' : ''}`}>
+          <p className="details-edit">
+            <a id="details-edit" href={`/details/${_id}`}>
+              <AiOutlineInfoCircle id='icon-info' />
+            </a>
+          </p>
+          <p>
+            <AiOutlineShopping id='icon-info'/>
+          </p>
+          <p>
+            <button className="btn-favorite" onClick={handleFavoriteClick}>
+              <MdFavoriteBorder id='icon-info'/>
+            </button>
+          </p>
         </div>
       </div>
-        
-
-  )
+    </div>
+    
+  );
 }
+
 export default Cards
 
 /*
