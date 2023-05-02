@@ -15,6 +15,10 @@ import { GoLocation  } from 'react-icons/go'
 import  '../Home/Home.css'
 import Carousel from 'react-bootstrap/Carousel';
 import { Container, Row, Col, Modal } from 'react-bootstrap';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { FcPrevious, FcNext } from 'react-icons/fc';
 
 
 
@@ -100,7 +104,7 @@ const Home = () => {
     const CategoredProducts = intProducts.filter((product) =>
       product.category.toLowerCase().includes(category.toLowerCase())
     );
-    const categories = CategoredProducts.slice(0, 5);
+    const categories = CategoredProducts.slice(0, 6);
     setCategoredProducts(categories);
   }
 
@@ -134,20 +138,33 @@ const Home = () => {
             <CarouselFadeExample />
             <Categorias setCategory={setCategory} />
             <div className=" container">
-            <h2 id="edit-h2">Livro <span>Usados</span></h2>
+            <h2 id="edit-h2">Livros <span>Usados</span></h2>
               <h2>{category}</h2>
-              <div className="cards text-center d-flex">
-                {CategoredProducts.map((product) => (
-                  <Cards
-                    key={product._id}
-                    _id={product._id}
-                    name={product.name}
-                    src={product.src}
-                    price={product.price}
-                    synopsis={product.synopsis}
-                  />
-                ))}
-              </div>
+              <Carousel className="my-carousel" prevIcon={<FcPrevious />} nextIcon={<FcNext />}>
+  {CategoredProducts.reduce((rows, product, index) => {
+    if (index % 5 === 0) rows.push([]);
+    rows[rows.length - 1].push(product);
+    return rows;
+  }, []).map((row, rowIndex) => (
+    <Carousel.Item key={rowIndex}>
+      <div className="cards text-center d-flex">
+        {row.map((product) => (
+          <Cards
+            key={product._id}
+            _id={product._id}
+            name={product.name}
+            src={product.src}
+            author={product.author}
+            price={product.price}
+            synopsis={product.synopsis}
+          />
+        ))}
+      </div>
+    </Carousel.Item>
+  ))}
+</Carousel>
+
+
             </div>
            
             <Trotes />
@@ -162,6 +179,7 @@ const Home = () => {
                     name={product.name}
                     src={product.src}
                     price={product.price}
+                    author={product.author}
                     synopsis={product.synopsis}
                   />
                 ))}

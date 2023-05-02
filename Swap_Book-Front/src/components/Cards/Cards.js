@@ -29,7 +29,7 @@ function Cards({ src, name, author, price, _id, isFavorite, handleFavoriteClick 
       <div className='col-text-et container'>
       <span class="card__category">R${price},00</span>
       <h6 class="card__title">{name}</h6>
-      <span class="card__by">by <a href="#" class="card__author" title="author">Author</a></span>
+      <span class="card__by">by <a href="#" class="card__author" title="author">{author}</a></span>
     </div>
       <div className="col-master">
         <div className={`btn-group ${hovered ? 'show' : ''}`}>

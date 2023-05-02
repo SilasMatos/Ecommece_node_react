@@ -9,6 +9,7 @@
   margin: auto;
   font-family: arial;
   
+  
 
 }
 
@@ -93,7 +94,9 @@ color: #868686;
   max-width: 200px;
   font-size: 2em;
 }
-
+.card img{
+height: 300px;
+}
 .card img:hover{
     transform: rotate(2);
 }
@@ -121,6 +124,9 @@ align-items:baseline;
   
   filter: blur(1px);
 
+}
+#img-card{
+  max-height: 400px;
 }
 .card:hover{
   animation: myAnims 1s cubic-bezier(0.76, 0, 0.24, 1) 0s 1 alternate forwards;

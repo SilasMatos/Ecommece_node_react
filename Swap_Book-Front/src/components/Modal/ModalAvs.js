@@ -19,7 +19,7 @@ function ModalAvs() {
     <>
       <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
         <Modal.Header closeButton>
-          <Modal.Title>Melhores seus Anuncios</Modal.Title>
+          <Modal.Title>Melhore seus Anuncios</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <p>Para aumentar as chances de sucesso na venda ou troca do seu livro, é recomendado enviar imagens de boa qualidade e em uma angulação adequada. Certifique-se de que a capa e as páginas estejam visíveis e sem sombras ou reflexos, para que os interessados possam ter uma boa noção do estado do livro.
