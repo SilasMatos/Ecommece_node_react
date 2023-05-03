@@ -51,7 +51,134 @@ const Dashboard = () => {
     <>
       <Navbar2 />
       <ModalAvs/>
-      <div class="container full-df">
+      <div className="container container01 cont-01">
+        <div className="cont-02">
+          <form>
+          <div className="cont-03">
+            <h3 className="text-center">Adicione seus Livros</h3>
+            <div className="col-input-00">
+            <input type="checkbox" id="cliente-pj" name="cliente" value="pj" />
+            <label for="cliente-pj"><p>Cliente PJ</p></label>
+            <input type="checkbox" id="cliente-fisico" name="cliente" value="fisico" />
+            <label for="cliente-fisico"><p>Cliente Físico</p></label>
+            </div>
+            <div className="col-input-01">
+            <input type="text" className="form-control input-edit" onChange={(e) => setProductName(e.target.value)} placeholder="Nome do Livro" value={productName} />
+            <input type="text" className="form-control input-edit" placeholder="Autor" value={autorProduct} onChange={(e) => setAutorProduct(e.target.value)} />
+            </div>
+            <div className="col-input-02">
+            <textarea class="form-control sino-edit" type="text" onChange={(e) => setSinopseProduct(e.target.value)} placeholder="Sinopse" ></textarea>
+            </div>
+            <div className="col-input-03">
+            <input type="number" className="form-control input-edit" placeholder="Ano" onChange={(e) => setProductYear(e.target.value)} />
+            <input type="number" className="form-control input-edit" placeholder="Preço" onChange={(e) => setProductPrice(e.target.value)} />
+            <select className="form-control edit-select" 
+            onChange={(e)=> 
+            setCategoria(e.target.value)}
+            value={categoria}
+             name="Categorias">
+              <option value="Romance"selected> Categórias </option>
+              <option value="Ficção" > Ficção</option>
+              <option value="Ação">Ação</option>
+              <option value="Suspense">Suspense</option>
+              <option value="Historia">História</option>
+              <option value="Bibliografia">Bibliografia</option>
+              <option value="Terror">Terror</option>
+              <option value="Fantasia">Fantasia</option>
+            </select>
+            </div>
+            
+        <div className="col-input-04">
+                 <div className="input-wrapper">
+                  <input  type="file" multiple onChange={(e) => setSrc(e.target.files)} />
+                  <span className="btn-preview">Escolher Imagem</span>
+                 </div>
+                 {src && (
+                 <div className="preview-wrapper">
+                    {Array.from(src).map((file) => (
+                      <img key={file.name} src={URL.createObjectURL(file)} alt={file.name} />
+                    ))}
+             </div>
+             )}
+            </div>
+            <div className="col-input-05">
+            <button className="btn btn-form-edit" onClick={newProducthandler}>
+          Adicionar Livro
+        </button>
+            </div>
+          </div>
+          
+          </form>
+        </div>
+      </div>
+
+      <Footer/>
+    </>
+  );
+};
+
+export default Dashboard;
+
+
+/* <section className="input-section">
+  <form className="">
+    <h1 className="text-center"> Adicionar um Produto</h1>
+    <div className="col-12 container">
+    <div className="row ">
+    <div className="col-6 edit-col">
+  <label className="text-img">Insira uma Imagem:</label>
+  <div className="input-wrapper">
+    <input type="file" multiple onChange={(e) => setSrc(e.target.files)} />
+    <span className="btn-preview">Escolher arquivo</span>
+  </div>
+  {src && (
+    <div className="preview-wrapper">
+      {Array.from(src).map((file) => (
+        <img key={file.name} src={URL.createObjectURL(file)} alt={file.name} />
+      ))}
+    </div>
+  )}
+</div>
+
+
+      <div className="col-md-6 products-inputs">
+        <input type="text" className="input-edit" onChange={(e) => setProductName(e.target.value)} placeholder="Nome do Livro" value={productName} />
+
+        <input type="number" className="input-edit" placeholder="Ano" onChange={(e) => setProductYear(e.target.value)} />
+
+        <input type="text" className="input-edit" placeholder="Autor" value={autorProduct} onChange={(e) => setAutorProduct(e.target.value)} />
+
+        <select className="mb-3 edit-select" 
+            onChange={(e)=> 
+            setCategoria(e.target.value)}
+            value={categoria}
+             name="Categorias">
+              <option value="Romance"selected> Categória </option>
+              <option value="Ficção" > Ficção</option>
+              <option value="Ação">Ação</option>
+              <option value="Suspense">Suspense</option>
+              <option value="Historia">História</option>
+              <option value="Bibliografia">Bibliografia</option>
+              <option value="Terror">Terror</option>
+              <option value="Fantasia">Fantasia</option>
+            </select>
+
+        <input type="number" className="input-edit" placeholder="Preço" onChange={(e) => setProductPrice(e.target.value)} />
+
+        <input type="text" className="input-edit" placeholder="Sinopse" onChange={(e) => setSinopseProduct(e.target.value)} />
+
+        <button className="btn btn-form-edit" onClick={newProducthandler}>
+          Adicionar Livro
+        </button>
+      </div>
+    </div>
+    </div>
+  </form>
+</section>*/
+
+
+/*
+   <div class="container full-df">
           
           <section class="panel panel-default">
           <div class="panel-heading"> 
@@ -148,68 +275,4 @@ const Dashboard = () => {
         </section>
 </div> 
 
-
-
-      <Footer/>
-    </>
-  );
-};
-
-export default Dashboard;
-
-
-/* <section className="input-section">
-  <form className="">
-    <h1 className="text-center"> Adicionar um Produto</h1>
-    <div className="col-12 container">
-    <div className="row ">
-    <div className="col-6 edit-col">
-  <label className="text-img">Insira uma Imagem:</label>
-  <div className="input-wrapper">
-    <input type="file" multiple onChange={(e) => setSrc(e.target.files)} />
-    <span className="btn-preview">Escolher arquivo</span>
-  </div>
-  {src && (
-    <div className="preview-wrapper">
-      {Array.from(src).map((file) => (
-        <img key={file.name} src={URL.createObjectURL(file)} alt={file.name} />
-      ))}
-    </div>
-  )}
-</div>
-
-
-      <div className="col-md-6 products-inputs">
-        <input type="text" className="input-edit" onChange={(e) => setProductName(e.target.value)} placeholder="Nome do Livro" value={productName} />
-
-        <input type="number" className="input-edit" placeholder="Ano" onChange={(e) => setProductYear(e.target.value)} />
-
-        <input type="text" className="input-edit" placeholder="Autor" value={autorProduct} onChange={(e) => setAutorProduct(e.target.value)} />
-
-        <select className="mb-3 edit-select" 
-            onChange={(e)=> 
-            setCategoria(e.target.value)}
-            value={categoria}
-             name="Categorias">
-              <option value="Romance"selected> Categória </option>
-              <option value="Ficção" > Ficção</option>
-              <option value="Ação">Ação</option>
-              <option value="Suspense">Suspense</option>
-              <option value="Historia">História</option>
-              <option value="Bibliografia">Bibliografia</option>
-              <option value="Terror">Terror</option>
-              <option value="Fantasia">Fantasia</option>
-            </select>
-
-        <input type="number" className="input-edit" placeholder="Preço" onChange={(e) => setProductPrice(e.target.value)} />
-
-        <input type="text" className="input-edit" placeholder="Sinopse" onChange={(e) => setSinopseProduct(e.target.value)} />
-
-        <button className="btn btn-form-edit" onClick={newProducthandler}>
-          Adicionar Livro
-        </button>
-      </div>
-    </div>
-    </div>
-  </form>
-</section>*/
+*/
