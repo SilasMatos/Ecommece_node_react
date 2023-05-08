@@ -11,8 +11,8 @@ async function hashPassword(password) {
   }
 }
 
-module.exports = {
-  async create(req, res) {
+
+  const create = async (req, res) => {
     const { name, email, password, phone, latitude, longitude } = req.body
 
     const location = {
@@ -38,9 +38,9 @@ module.exports = {
     } catch (err) {
       return res.status(400).send(err)
     }
-  },
+  }
 
-  async delete(req, res) {
+  const deletedUser = async (req, res) => {
     const { user_id } = req.params
 
     const { auth } = req.headers
@@ -54,8 +54,8 @@ module.exports = {
     } catch (err) {
       return res.status(400).send(err)
     }
-  },
-  async findUser(req, res) {
+  }
+  const findUser = async(req, res) => {
     const { user_id } = req.params
 
     const { auth } = req.headers
@@ -66,8 +66,9 @@ module.exports = {
     } catch (err) {
       return res.status(400).send(err)
     }
-  },
-  async index(req, res) {
+  }
+
+  const index = async (req, res) => {
     try {
       const allUsers = await User.find()
       return res.status(200).send(allUsers)
@@ -75,4 +76,57 @@ module.exports = {
       return res.status(400).send(err)
     }
   }
+
+  const update = async(req, res) => {
+    const { user_id } = req.params
+    const { auth } = req.headers
+    const { name, email, password, phone, latitude, longitude } = req.body
+
+    const location = {
+      type: 'Point',
+      coordinates: [longitude, latitude]
+    }
+
+    try {
+      const userToUpdate = await User.findById(user_id)
+      if (!userToUpdate) {
+        return res.status(404).send({ message: 'Usuário não encontrado' })
+      }
+
+      if (userToUpdate._id.toString() !== auth) {
+        return res.status(401).send({ message: 'Não Autorizado!' })
+      }
+
+      let updatedFields = {
+        name,
+        email,
+        password: hashPassword,
+        phone,
+        location
+      }
+
+      if (password) {
+        const hashedPassword = await hashPassword(password)
+        updatedFields.password = hashedPassword
+      }
+
+      const updatedUser = await User.findByIdAndUpdate(
+        user_id,
+        { $set: updatedFields },
+        { new: true }
+      )
+
+      return res.status(200).send(updatedUser)
+    } catch (err) {
+      return res.status(400).send(err)
+    }
+  }
+
+
+module.exports = {
+  create,
+  deletedUser,
+  findUser,
+  index,
+  update
 }
