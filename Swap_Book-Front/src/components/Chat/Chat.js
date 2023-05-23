@@ -2,6 +2,8 @@ import React, {useRef, useState, useEffect} from 'react'
 import {Input} from '@mui/material'
 import { FaTelegramPlane } from 'react-icons/fa';
 import style from './Chat.module.css'
+import Navbar2 from '../Navbar2/Navbar2';
+import Footer from '../Footer/Footer';
 
 export default function Chat({socket}) {
 
@@ -49,7 +51,13 @@ export default function Chat({socket}) {
 
   return (
     <div>
-      <div className={style['chat-container']}>
+       <Navbar2 />
+       <div className='container'>
+       <div className={style['cont-chat']}>
+      <div className={style['chat-container ']}>
+        <div className={style['chat-info-user']}>
+        <h1>asdasdsada</h1>
+        </div>
         <div className={style["chat-body"]}>
         {
           messageList.map((message,index) => (
@@ -66,6 +74,9 @@ export default function Chat({socket}) {
           <FaTelegramPlane sx={{m:1, cursor: 'pointer'}} onClick={()=>handleSubmit()}  />
         </div>
       </div>
+    </div>
+    </div>
+    <Footer />
     </div>
   )
 }

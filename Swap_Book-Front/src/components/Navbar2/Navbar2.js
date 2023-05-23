@@ -41,7 +41,7 @@ function Navbar2({ setSearchProducts }) {
 
     return (
         <>
-            <Navbar bg="light" expand="lg">
+            <Navbar className="fixed-top edit-nav-pr" bg="light" expand="lg">
                 <Container>
                     <Navbar.Brand
                         to="/"
@@ -135,12 +135,7 @@ function Navbar2({ setSearchProducts }) {
                                         />
 
                                         <Dropdown.Menu>
-                                            <Dropdown.Item
-                                                id="edit-tx-dr"
-                                                href="#/action-1"
-                                            >
-                                                Suas Trocas
-                                            </Dropdown.Item>
+                                           
                                             <Dropdown.Item
                                                 id="edit-tx-dr"
                                                 href="#/action-2"

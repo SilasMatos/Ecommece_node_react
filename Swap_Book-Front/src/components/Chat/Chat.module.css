@@ -1,8 +1,18 @@
+.cont-chat{
+display: flex;
+align-items: center;
+flex-direction: row;
+justify-content: space-between;
+border: 1px solid #000;
+margin-top: 8rem;
+}
+
 .chat-container{
+
     height: 600px;
     width: 400px;
     background-color: #f0f0f0;
-    -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 5px 5px 1 5px 5px rgba(0, 0, 0, 0.3);
       box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
   }
   .chat-body{

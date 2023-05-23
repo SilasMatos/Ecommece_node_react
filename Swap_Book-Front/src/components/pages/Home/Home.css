@@ -13,15 +13,23 @@
 
 
 }
+
 .carousel-control-prev {
   margin-right: 15px;
   font-size: 20pt;
   text-decoration: none;
+  color: #00a8ff;
+}
+.carousel-control-prev:hover{
+  color: #00a8ff;
 }
 
 .carousel-control-next {
   margin-left: 15px;
   font-size: 20pt;
+  color: #00a8ff;
+}
+.carousel-control-next:hover{
   color: #00a8ff;
 }
 

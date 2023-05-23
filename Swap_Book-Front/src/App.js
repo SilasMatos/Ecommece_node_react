@@ -1,6 +1,7 @@
 import React from "react";
 import Rotas from "./Routes/Routes";
 import { UserProvider } from "./components/UseContext/UserContext";
+import "./index.css"
 
 function App() {
 
