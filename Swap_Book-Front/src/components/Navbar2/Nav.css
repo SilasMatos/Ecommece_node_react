@@ -69,6 +69,9 @@
     width: 280px;
     color: #000000;
   }
+  #sua-conta-edit{
+    text-decoration: none;
+  }
   .icon-size-drop{
     font-size: 2rem;
     display: flex;

@@ -13,6 +13,8 @@ const RegisterPage = () => {
   const [email, setEmail] = useState("")
   const [phone, setPhone] = useState("")
   const [password, setPassword] = useState("")
+  const [dateBirth, setDateBirth] = useState("")
+  const [gender, setGender] = useState("")
   const [latitude, setLatitude] = useState(0)
   const [longitude, setLongitude] = useState(0)
   const navigate = useNavigate()
@@ -32,6 +34,8 @@ const RegisterPage = () => {
         email,
         password,
         phone,
+        dateBirth,
+        gender,
         latitude,
         longitude
       } )
@@ -122,6 +126,38 @@ const RegisterPage = () => {
               <span>Senha</span>
             <i></i>
          </div>
+
+
+         <div className='inputbox-date'>
+          <input
+            type='date'
+            value={dateBirth}
+            onChange={(e) => setDateBirth(e.target.value)}
+            id='birthdate'
+            name='birthdate'
+            required
+          
+          />
+          <span>Data de Nascimento</span>
+          <i></i>
+</div>
+
+<div className='text-center edit-gen'>
+  <select
+    className='custom-select'
+    value={gender}
+    onChange={(e) => setGender(e.target.value)}
+    id='gender'
+    name='gender'
+    required
+  >
+    <option value=''>Gênero</option>
+    <option value='masculino'>Masculino</option>
+    <option value='feminino'>Feminino</option>
+    <option value='outro'>Outro</option>
+  </select>
+</div>
+
      <button
            onClick={registerHandler}
         type="submit"
@@ -146,86 +182,6 @@ const RegisterPage = () => {
     </div>
   </div>
 
-
-
-    /*
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      <div className="bg-white p-10 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold mb-4">Login</h1>
-        <form className="space-y-6">
-          <div>
-            <label htmlFor="Nome" className="block text-gray-800 font-bold mb-2">
-              Nome
-            </label>
-            <input
-              type="text"
-              id="nome"
-              name="nome"
-              value={name}
-              onChange={e => setName(e.target.value)}
-              className="w-full border border-gray-300 p-2 rounded-lg"
-              placeholder="Seu Nome"
-            />
-            <label htmlFor="email" className="block text-gray-800 font-bold mb-2">
-              Email
-            </label>
-            <input
-              type="email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              id="email"
-              name="email"
-              className="w-full border border-gray-300 p-2 rounded-lg"
-              placeholder="Enter your email address"
-            />
-           <label htmlFor="Telefone" className="block text-gray-800 font-bold mb-2">
-  Telefone
-</label>
-<input
-  type="tel"
-  value={phone}
-  id="telefone"
-  onChange={e => setPhone(e.target.value)}
-  name="telefone"
-  className="w-full border border-gray-300 p-2 rounded-lg"
-  placeholder="(XX) XXXX-XXXX"
-  pattern="[0-9]{2} [0-9]{4,5}-[0-9]{4}"
-  required
-/>
-
-          </div>
-          <div>
-            <label htmlFor="password" className="block text-gray-800 font-bold mb-2">
-              Password
-            </label>
-            <input
-              type="password"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              id="password"
-              name="password"
-              className="w-full border border-gray-300 p-2 rounded-lg"
-              placeholder="Enter your password"
-            />
-          </div>
-          <div>
-            <button
-              type="submit" onClick={registerHandler}
-              className="w-full rounded-3xl bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 text-xl font-medium uppercase"
-            >
-              Registrar
-            </button>
-          </div>
-        </form>
-      </div>
-      <p className="mt-4 text-gray-600">
-        Já Possui uma conta?{' '}
-        <button  className="text-blue-500 hover:text-blue-600">
-          <Link to="/login">Entre aqui</Link>
-        </button>
-      </p>
-    </div>
-    */
   );
 };
 

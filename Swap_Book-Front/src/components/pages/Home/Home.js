@@ -19,6 +19,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { FcPrevious, FcNext } from 'react-icons/fc'
+import { BsArrowRightShort } from 'react-icons/bs'
 
 const Home = () => {
     const [index, setIndex] = useState(0)
@@ -163,6 +164,7 @@ const Home = () => {
           />
         ))}
       </div>
+      <div><Link to="/filter">Veja mais<BsArrowRightShort/></Link></div>
     </Carousel.Item>
   ))}
 </Carousel>

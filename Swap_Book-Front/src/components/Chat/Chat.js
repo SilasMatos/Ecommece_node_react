@@ -55,9 +55,6 @@ export default function Chat({socket}) {
        <div className='container'>
        <div className={style['cont-chat']}>
       <div className={style['chat-container ']}>
-        <div className={style['chat-info-user']}>
-        <h1>asdasdsada</h1>
-        </div>
         <div className={style["chat-body"]}>
         {
           messageList.map((message,index) => (
@@ -76,6 +73,7 @@ export default function Chat({socket}) {
       </div>
     </div>
     </div>
+    
     <Footer />
     </div>
   )

@@ -135,26 +135,34 @@ function Navbar2({ setSearchProducts }) {
                                         />
 
                                         <Dropdown.Menu>
-                                           
+                                           <Link id='sua-conta-edit' to="/updateUser">
                                             <Dropdown.Item
                                                 id="edit-tx-dr"
                                                 href="#/action-2"
+                                                to="/updateUser"
                                             >
+                                                
                                                 Sua Conta
                                             </Dropdown.Item>
+                                            </Link>
+                                            {userData.isLogged ? (
+                                                
+                                                <Link
+                                                id="link-edit-tx"
+                                                onClick={logoutHandler}
+                                            >
                                             <Dropdown.Item
                                                 id="edit-tx-dr"
                                                 href="#/action-3"
                                             >
-                                                {userData.isLogged ? (
-                                                    <Link
-                                                        id="link-edit-tx"
-                                                        onClick={logoutHandler}
-                                                    >
+                                                
+                                                 
                                                         Sair
-                                                    </Link>
-                                                ) : null}
+                                                    
+                                                
                                             </Dropdown.Item>
+                                            </Link>
+                                            ) : null}
                                         </Dropdown.Menu>
                                     </Dropdown>
                                 </Link>

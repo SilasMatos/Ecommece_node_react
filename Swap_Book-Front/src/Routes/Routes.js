@@ -17,6 +17,8 @@ import MyAnnuncements from '../components/pages/MyAnnunciments/MyAnnuncements'
 import MapGL from '../components/MapGL/MapGL'
 import UpdateBook from '../components/pages/UpdateBook/UpdateBook'
 import UserShow from '../components/pages/UserShow/UserShow'
+import Filter from '../components/pages/filterBooks/Filter'
+import UpdateUser from '../components/pages/UpdateUser/UpdateUser'
 
 const Rotas = () => {
     const [userData, setUserData] = useContext(UserContext)
@@ -42,6 +44,7 @@ const Rotas = () => {
                     }
                 />
                 <Route exact path="/login" Component={LoginPage} />
+                <Route exact path="/filter" Component={Filter} />
                 <Route
                     exact
                     path="/user_presentation/:_id"
@@ -49,6 +52,7 @@ const Rotas = () => {
                 />
                 <Route exact path="/chat" Component={ChatPage} />
                 <Route exact path="/registrar" Component={RegisterPage} />
+                <Route exact path="/updateUser" Component={UpdateUser} />
                 <Route
                     path="/map_products"
                     element={

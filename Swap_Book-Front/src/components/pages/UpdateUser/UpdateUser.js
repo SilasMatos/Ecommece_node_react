@@ -1,105 +1,80 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { useState, useContext } from "react";
-import api from "../../../Services/Api";
-const UpdateUser = () => {
-    const [userData, setUserData] = useContext(UserContext);
-  const { user_id } = useParams();
-  const navigate = useNavigate();
+import React, { useState } from 'react';
+import '../UpdateUser/UpdateUser.css'
+import Navbar2 from '../../Navbar2/Navbar2';
+import Footer from '../../Footer/Footer';
+import {BsShieldLock} from 'react-icons/bs'
+import {RiFileUserLine} from 'react-icons/ri'
+import {BsCreditCard2Front} from 'react-icons/bs'
+function UpdateUser() {
+  const [divExibida, setDivExibida] = useState('informacoesPessoais');
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [phone, setPhone] = useState('');
-  const [latitude, setLatitude] = useState('');
-  const [longitude, setLongitude] = useState('');
-
-  useEffect(() => {
-    fetchUserData();
-  }, []);
-
-  const fetchUserData = async () => {
-    try {
-      const response = await api.get(`/api/user/${user_id}`);
-      const { name, email, phone, location } = response.data;
-      setName(name);
-      setEmail(email);
-      setPhone(phone);
-      setLatitude(location.coordinates[1]);
-      setLongitude(location.coordinates[0]);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const updatedUser = {
-      name,
-      email,
-      password,
-      phone,
-      latitude,
-      longitude
-    };
-
-    try {
-      const response = await api.put(`/api/user/${user_id}`, updatedUser, {
-        headers: {  auth: `${userData._id}`  }
-      });
-      console.log(response.data); // Você pode tratar a resposta conforme necessário
-      navigate('/users'); // Navegue para a página de usuários após a atualização
-    } catch (error) {
-      console.error(error);
-    }
+  const exibirDiv = (div) => {
+    setDivExibida(div);
   };
 
   return (
-    <div>
-      <h2>Editar Usuário</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          Email:
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          Phone:
-          <input
-            type="text"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          />
-        </label>
-        <br />
+    <div className=''>
+       <Navbar2 />
+       <div className='container'>
+       <div className="container-Up">
+      <div className="botoes-Up">
+        
+       
+        <button 
 
-        <button type="submit">Update User</button>
-      </form>
+          id='btn-Up'
+          className={divExibida === 'informacoesPessoais' ? 'botaoAtivo' : ''}
+          onClick={() => exibirDiv('informacoesPessoais')}
+        >
+         <RiFileUserLine id='icon-up'/> Informações Pessoais
+        </button>
+        <button
+        id='btn-Up'
+          className={divExibida === 'segurancaPrivacidade' ? 'botaoAtivo' : ''}
+          onClick={() => exibirDiv('segurancaPrivacidade')}
+        >
+          <BsShieldLock id='icon-up'/> Segurança e Privacidade
+        </button>
+      
+        <button id='btn-Up'
+          className={divExibida === 'assinaturas' ? 'botaoAtivo' : ''}
+          onClick={() => exibirDiv('assinaturas')}
+        >
+         <BsCreditCard2Front id='icon-up'/>  Assinaturas
+        </button>
+      </div>
+
+      <div className="conteudo-Up">
+      {divExibida === 'informacoesPessoais' && (
+          <div>
+           <h5 className='text-center'>Meu Cadastro</h5>
+           <p>Configure seu Cadastro</p>
+           <div className="">
+            <h6>Dados da conta</h6>
+            <p>Nome</p>
+            <input></input>
+            <p>Gênero</p>
+          </div>
+          </div>
+        )}
+        {divExibida === 'segurancaPrivacidade' && (
+          <div>
+           <h5>Segurança e privacidade</h5>
+           <p>Aumente a segurança e tenha o controle da sua conta</p>
+          </div>
+        )}
+     
+        {divExibida === 'assinaturas' && (
+          <div>
+           <h5>Suas Assinaturas</h5>
+          </div>
+        )}
+      </div>
+      </div>
     </div>
+  <Footer />
+  </div>
   );
-};
+}
 
 export default UpdateUser;
