@@ -67,57 +67,7 @@ const MyCards = ({name, author, price, synopsis, _id, src}) => {
 
 
 
-    /*
-    <div className="image-with-title">
-      <div className="icon-container-ca">
-      <Dropdown className="" title="" renderToggle={renderIconButton}>
-          
-          <Dropdown.Item icon={<TrashIcon />}onClick={deleteProduct}>
-          </Dropdown.Item>
-          <Link to={`/editar_produto/${_id}`}>
-            <Dropdown.Item icon={<EditIcon/>} >
-            </Dropdown.Item>
-          </Link>
-          
-      </Dropdown>
-      </div>
-      <img  src={`http://localhost:3333/${src}`} alt="Imagem" className="image-ca" />
-      <h3 className="title-ca">{name}</h3>
-    </div>
-*/
-  /*
-    <div className={` cards container d-flex`}>
-      
-      <div>
-        
-      <div className={`${styles.cardinho} `}>
-     
-        </div>
-        <Dropdown className={`${styles.drops} z-3`} title="" renderToggle={renderIconButton}>
-          
-          <Dropdown.Item icon={<TrashIcon />}onClick={deleteProduct}>
-          </Dropdown.Item>
-          <Link to={`/editar_produto/${_id}`}>
-            <Dropdown.Item icon={<EditIcon/>} >
-            </Dropdown.Item>
-          </Link>
-          
-      </Dropdown>
-      </div>
-        <img
-          src={`http://localhost:3333/${src}`}
-          alt="Denim Jeans"
-        ></img>
-        <div className={`${styles.continfos} `}>
-        <h1>Tiulo:{name}</h1>
-        <p className="price">Preço R${price}</p>
-        <p>Sinopse:{synopsis}</p>
-        
-      </div>
-      
-    </div>
     
-  */
   )
 }
 
